@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class GroceriesServiceProvider {
   // baseURL = "http://localhost:8080";
-  baseURL = "https://pet-lovers-server.herokuapp.com/api/groceries";
+  baseURL = "https://pet-lovers-server.herokuapp.com";
 
   items = [];
   dataModified: Observable<boolean>;
