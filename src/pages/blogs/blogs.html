@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <h3 text-center *ngIf = "items.length === 0">
+    No item available on the list.
+  </h3>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items; let i = index">
+      <ion-item>
+        <h1>{{item.name}}</h1>
+        <p>{{item.quantity}}</p>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button expandable (click)="removeItem(item, item._id)" color = "secondary">
+          <ion-icon name="trash"></ion-icon>
+          Done
+        </button>
+        <button ion-button expandable (click)="editItem(item, item._id)" color = "primary">
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+        <button ion-button expandable (click)="shareItem(item, item._id)" color = "light">
+          <ion-icon name="share"></ion-icon>
+          Share
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list> -->
+  
+  <ion-card *ngFor="let blog of blogs">
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="blog.user-image">
+      </ion-avatar>
+      <h2>{{blog.title}}</h2>
+      <p>{{blog.dateUpdated}}</p>
+    </ion-item>
+  
+    <img src="img/advance-card-bttf.png">
+  
+    <ion-card-content>
+      <p>{{blog.content}}</p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small (click)="viewMessages(chat)">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{blog.likes}} Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{blog.comments}} Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+
+
+  <ion-fab bottom right>
+    <button ion-fab mini (click)="addNewBlog(item)">
+      <ion-icon name="add">
+      </ion-icon>
+    </button>
+  </ion-fab>
+  
+  
+
+  
+</ion-content>
+

@@ -1,5 +1,12 @@
-<ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Qiaoqiao Liu" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
-</ion-tabs>
+
+
+
+
+  <button full ion-button color="danger" (click)="logoutUser()">Logout</button>
+  <ion-tabs>
+    <ion-tab [root]="tab1Root" tabTitle="Blogs" tabIcon="home" [rootParams]="user"></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Chats" tabBadge="14" tabIcon="chatboxes"></ion-tab>
+    <ion-tab [root]="tab3Root" tabTitle="Settings" tabIcon="settings"></ion-tab>
+  </ion-tabs>
+
+

@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
+import { NavParams } from 'ionic-angular';
+import { ChatsPage } from '../chats/chats';
+import { SettingsPage } from '../settings/settings';
+import { BlogsPage } from '../blogs/blogs';
+import { User } from '../../models/User';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-
-  constructor() {
-
+  user: User;
+  
+  constructor(public navParams: NavParams) {
+    this.user = navParams.get('user');;
+    console.log(this.user);
   }
+
+  tab1Root = BlogsPage;
+  tab2Root = ChatsPage;
+  tab3Root = SettingsPage;
 }
