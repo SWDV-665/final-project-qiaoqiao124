@@ -6,33 +6,6 @@
 </ion-header>
 
 <ion-content padding>
-
-  <!-- <h3 text-center *ngIf = "items.length === 0">
-    No item available on the list.
-  </h3>
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of items; let i = index">
-      <ion-item>
-        <h1>{{item.name}}</h1>
-        <p>{{item.quantity}}</p>
-      </ion-item>
-
-      <ion-item-options side="right">
-        <button ion-button expandable (click)="removeItem(item, item._id)" color = "secondary">
-          <ion-icon name="trash"></ion-icon>
-          Done
-        </button>
-        <button ion-button expandable (click)="editItem(item, item._id)" color = "primary">
-          <ion-icon name="create"></ion-icon>
-          Edit
-        </button>
-        <button ion-button expandable (click)="shareItem(item, item._id)" color = "light">
-          <ion-icon name="share"></ion-icon>
-          Share
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list> -->
   
   <ion-card *ngFor="let blog of blogs" (click)="viewTheBlog(blog)" style="height: 35vh;">
     <ion-item>
@@ -42,7 +15,6 @@
       <h2>{{blog.title}}</h2>
       <p>Author: {{blog.authorName}}</p>
       <p>{{blog.dateUpdated}}</p>
-      
       
     </ion-item>
   
@@ -74,16 +46,12 @@
   
   </ion-card>
 
-
   <ion-fab bottom right>
     <button ion-fab mini (click)="addNewBlog(item)">
       <ion-icon name="add">
       </ion-icon>
     </button>
   </ion-fab>
-  
-  
-
   
 </ion-content>
 

@@ -28,26 +28,6 @@ export class ChatMessagesPage {
   messages = [];
   errorMessage : string;
 
-  // constructor(public navCtrl: NavController, public navParams: NavParams) {
-  // }
-
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad ChatMessagesPage');
-  // }
-
-
-  // toUser = {
-  //   _id: '534b8e5aaa5e7afc1b23e69b',
-  //   pic: 'assets/img/avatar/ian-avatar.png',
-  //   username: 'Venkman',
-  // };
-
-  // user = {
-  //   _id: '534b8fb2aa5e7afc1b23e69c',
-  //   pic: 'assets/img/avatar/marty-avatar.png',
-  //   username: 'Marty',
-  // };
-
   doneLoading = false;
 
 
@@ -84,8 +64,6 @@ export class ChatMessagesPage {
   }
 
   ionViewDidLoad() {
-    // let modelData: string = '用户名：' + this.navParams.get('chatId');
-    // console.log(modelData);
     
   }
 
@@ -129,7 +107,7 @@ export class ChatMessagesPage {
         },
         err => {
           console.log(err);
-          // console.log(this.blogItem, this.user);
+      
         }
       );
       
