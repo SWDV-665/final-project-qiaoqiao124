@@ -38,7 +38,6 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     MyApp,
     ChatsPage,
     ChatMessagesPage,
-    MessageItem,
     SettingsPage,
     BlogsPage,
     TabsPage,
@@ -46,8 +45,7 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     RegisterPage,
     BlogEditingPage,
     BlogDetailPage,
-    ChatsItemComponent,
-    User
+    ChatsItemComponent
   ],
   imports: [
     BrowserModule,
@@ -72,9 +70,7 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     RegisterPage,
     BlogEditingPage,
     BlogDetailPage,
-    ChatsPage,
-    MessageItem,
-    User
+    ChatsPage
   ],
   providers: [
     StatusBar,

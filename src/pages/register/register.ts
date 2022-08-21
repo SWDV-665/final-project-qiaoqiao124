@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../models/User';
-import { AccountServiceProvider } from '../../providers/account-service/account-service';
 import { ToastServiceProvider } from '../../providers/toast-service/toast-service';
 import { EmailValidationService } from '../../providers/auth-service/email-validation';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
@@ -25,7 +24,6 @@ export class RegisterPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams, 
-    public accountService: AccountServiceProvider,
     public toastCtrl: ToastServiceProvider,
     public emailValidCtrl: EmailValidationService,
     public auth: AuthServiceProvider) {
@@ -87,8 +85,7 @@ export class RegisterPage {
         console.log(err)
       }
     );
-    // this.accountService.addUser(this.user);
-    // this.auth.login();
+   
   }
 
 }
