@@ -2145,8 +2145,8 @@ var AuthServiceProvider = /** @class */ (function () {
         this.appCtrl = appCtrl;
         this.alertCtrl = alertCtrl;
         this.location = location;
-        // private isLoggedIn = false;
-        this.baseURL = "http://localhost:8080";
+        //baseURL = "http://localhost:8080";
+        this.baseURL = "https://pet-lovers-server.herokuapp.com";
         console.log('Hello AuthServiceProvider Provider');
     }
     // serverUrl = this.accountService.baseURL;
@@ -2195,12 +2195,10 @@ var AuthServiceProvider = /** @class */ (function () {
     };
     AuthServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["b" /* App */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* LocationStrategy */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["b" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* LocationStrategy */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* LocationStrategy */]) === "function" && _d || Object])
     ], AuthServiceProvider);
     return AuthServiceProvider;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=auth-service.js.map

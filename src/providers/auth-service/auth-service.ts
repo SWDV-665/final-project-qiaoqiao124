@@ -15,8 +15,10 @@ import { LoginPage } from '../../pages/login/login';
 */
 @Injectable()
 export class AuthServiceProvider {
-  // private isLoggedIn = false;
-  baseURL = "http://localhost:8080";
+  
+  //baseURL = "http://localhost:8080";
+  baseURL = "https://pet-lovers-server.herokuapp.com";
+
   
   constructor(public http: HttpClient,
     public appCtrl: App,
