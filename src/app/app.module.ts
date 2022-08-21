@@ -22,7 +22,7 @@ import { InputDialogProvider } from '../providers/input-dialog/input-dialog';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-import { AccountServiceProvider } from '../providers/account-service/account-service';
+
 import { PipesModule } from '../pipes/pipes.module';
 import { ChatsItemComponent } from '../components/chats-item/chats-item';
 
@@ -81,7 +81,7 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     InputDialogProvider,
     SocialSharing,
     AuthServiceProvider,
-    AccountServiceProvider,
+   
     IonicStorageModule,
     Keyboard,
     ToastServiceProvider,
