@@ -18,8 +18,7 @@ import { MessageItem } from '../models/MessageItem';
 import { User } from '../models/User';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { GroceriesServiceProvider } from '../providers/groceries-service/groceries-service';
-import { InputDialogProvider } from '../providers/input-dialog/input-dialog';
+
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
@@ -82,8 +81,6 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera, 
-    GroceriesServiceProvider,
-    InputDialogProvider,
     SocialSharing,
     AuthServiceProvider,
    
