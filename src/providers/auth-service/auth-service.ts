@@ -80,11 +80,6 @@ export class AuthServiceProvider {
 
   }
  
-  // Returns whether the user is currently authenticated
-  // Could check if current token is still valid
-  // authenticated() : boolean {
-  //   return this.isLoggedIn;
-  // }
-
+  
 }
 

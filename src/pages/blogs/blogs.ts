@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, DateTime } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { GroceriesServiceProvider } from '../../providers/groceries-service/groceries-service';
@@ -10,6 +10,9 @@ import { NavParams } from 'ionic-angular';
 import { User } from '../../models/User';
 import { BlogServiceProvider } from '../../providers/blog-service/blog-service';
 import { BlogItem } from '../../models/BlogItem';
+import { BlogDetailPage } from '../blog-detail/blog-detail';
+import { catchError, retry, map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'page-blogs',
@@ -17,7 +20,7 @@ import { BlogItem } from '../../models/BlogItem';
 })
 
 export class BlogsPage{
-  title = "Blogs";
+  
   // blogs = [
   //   {
   //     'userID': '1',
@@ -27,34 +30,7 @@ export class BlogsPage{
   //     'text': 'Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.',
   //     'likes': '4',
   //     'comments': '12'
-  //   },
-  //   {
-  //     'userID': '1',
-  //     'username': 'Marty McFly',
-  //     'user-image': 'img/advance-card-bttf.png',
-  //     'time': 'November 5, 1955',
-  //     'text': 'Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.',
-  //     'likes': '4',
-  //     'comments': '12'
-  //   },
-  //   {
-  //     'userID': '1',
-  //     'username': 'Marty McFly',
-  //     'user-image': 'img/advance-card-bttf.png',
-  //     'time': 'November 5, 1955',
-  //     'text': 'Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.',
-  //     'likes': '4',
-  //     'comments': '12'
-  //   },
-  //   {
-  //     'userID': '1',
-  //     'username': 'Marty McFly',
-  //     'user-image': 'img/advance-card-bttf.png',
-  //     'time': 'November 5, 1955',
-  //     'text': 'Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.',
-  //     'likes': '4',
-  //     'comments': '12'
-  //   }        
+  //   }   
   // ];
   blogs = [];
   user: User;
@@ -69,14 +45,25 @@ export class BlogsPage{
     public socialSharing: SocialSharing,
     public blogService: BlogServiceProvider) {
       this.user = this.navParam.data;
+      this.navCtrl.popToRoot();
+    
+      this.loadBlogs();
       // console.log(this.user);
-      dataService.dataModified.subscribe((dataModified: boolean) => {
-        // this.loadItems();
-      });
+      // dataService.dataModified.subscribe((dataModified: boolean) => {
+      //   // this.loadItems();
+      // });
+  }
+
+  ionViewWillEnter () {
+    this.user = this.navParam.data;
+    this.navCtrl.popToRoot();
+    
+    this.loadBlogs();
   }
 
   ionViewDidLoad() {
-    this.loadBlogs();
+    
+    
   }
 
   loadBlogs() {
@@ -86,12 +73,26 @@ export class BlogsPage{
     //   error => this.errorMessage = <any>error
     // );
     this.blogService.getBlogs().subscribe(
-      items => {
-        this.blogs = items;
+      blogs => {
+        
+        this.blogs = this.sortBlogs(blogs);
         console.log(this.blogs);
       },
       error => this.errorMessage = <any>error
     );
+  }
+
+  sortBlogs(blogs) {
+    return blogs.sort((a, b) => {
+      return <any>new Date(b.dateUpdated) - <any>new Date(a.dateUpdated);
+    });
+  }
+
+  viewTheBlog(blog) {
+    this.navCtrl.push(BlogDetailPage, {
+      blog:blog,
+      viewer: this.user
+    });
   }
 
   removeItem(item, index) {
@@ -124,26 +125,7 @@ export class BlogsPage{
     this.inputDialogService.showPrompt(item, index);
   };
 
-  shareItem(item, index) {
-    let toast = this.toastCtrl.create({
-      message: 'Share ' + item.name + '. index' + index,
-      duration: 1000,
-      position: 'bottom'
-    });
-
-    toast.present();
-    let message = "Grocery item - Name: " + item.name + "- Quantity: " + item.quantity;
-    let subject = "Shared via Groceries app";
-
-    // Check if sharing via email is supported
-    this.socialSharing.canShareViaEmail().then(() => {
-      // Sharing via email is possible
-      console.log("Shared successfully");
-    }).catch((error) => {
-      // Sharing via email is not possible
-      console.error("Error while sharing", error);
-    });
-  };
+  
 
   addNewBlog() {
     this.navCtrl.push(BlogEditingPage, {

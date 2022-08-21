@@ -1,0 +1,13 @@
+<!-- Generated template for the ChatsItemComponent component -->
+<ion-item>
+  <ion-avatar item-start>
+    <img [src]="">
+    
+  </ion-avatar>
+  
+  <h2>{{chatsItem.friendName}}</h2>
+  <p>{{chatsItem.content}}</p>
+  <ion-note item-end>{{chatsItem.dateUpdated | date:'HH:mm:ss'| lowercase}}</ion-note>
+  
+</ion-item>
+

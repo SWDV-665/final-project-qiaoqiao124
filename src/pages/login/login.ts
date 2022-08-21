@@ -36,6 +36,7 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    this.navCtrl.popToRoot();
   }
 
   loginUser(email: HTMLInputElement, password: HTMLInputElement) {
@@ -92,12 +93,8 @@ export class LoginPage {
     this.navCtrl.push(TabsPage, {
       user: user
     }).catch(err => {
-      let alert = this.alertCtrl.create({
-        title: 'No entry!',
-        subTitle: 'You shall not pass',
-        buttons: ['Okay']
-      });
-      alert.present();
+      console.log(err);
+      
     });
   }
   

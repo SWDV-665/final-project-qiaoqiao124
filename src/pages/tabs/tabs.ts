@@ -11,12 +11,14 @@ import { User } from '../../models/User';
 })
 export class TabsPage {
   user: User;
-  
+ 
   constructor(public navParams: NavParams) {
-    this.user = navParams.get('user');;
+    this.user = navParams.get('user');
     console.log(this.user);
+    
   }
 
+  
   tab1Root = BlogsPage;
   tab2Root = ChatsPage;
   tab3Root = SettingsPage;

@@ -1,0 +1,63 @@
+<!--
+  Generated template for the BlogDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Hello, {{user.username}}!</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="">
+      </ion-avatar>
+      <h2>{{blogItem.title}}</h2>
+      <p>Author: {{blogItem.authorName}}</p>
+      <p>Date updated: {{blogItem.dateUpdated}}</p>
+    </ion-item>
+  
+    <img src="img/advance-card-bttf.png">
+  
+    <ion-card-content>
+      <p>{{blogItem.content}}
+      </p>
+    </ion-card-content>
+  
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{blogItem.likes}} Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{blogItem.comments}} Comments</div>
+        </button>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  
+  </ion-card>
+  <ion-fab right top>
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="shareBlog()"><ion-icon name="md-share"></ion-icon></button>
+      <button ion-fab (click)="startChat(blogItem.authorID, blogItem.authorName)"><ion-icon name="chatbubbles"></ion-icon></button>
+      
+    </ion-fab-list>
+  
+  </ion-fab>
+
+</ion-content>

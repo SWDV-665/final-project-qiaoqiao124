@@ -1,21 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, App } from 'ionic-angular';
+import { NavController, AlertController, App, NavParams } from 'ionic-angular';
+import { User } from '../../models/User';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
-import { LoginPage } from '../login/login';
+
 
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
 })
 export class SettingsPage {
-
+  user: User
   constructor(public appCtrl: App, 
     public navCtrl: NavController, 
     public authService: AuthServiceProvider, 
-    public alertCtrl: AlertController) {
-
+    public alertCtrl: AlertController,
+    public navParam: NavParams) {
+      this.user = this.navParam.data;
   }
 
   logoutUser() {

@@ -6,8 +6,16 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Editing Your Blog</ion-title>
+    <ion-title>New Blog</ion-title>
   </ion-navbar>
+  <ion-fab right top>
+    <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+    <ion-fab-list side="down">
+      <button ion-fab (click)="takePhoto()"><ion-icon name="camera"></ion-icon></button>
+      <button ion-fab (click)="uploadImages()"><ion-icon name="images"></ion-icon></button>
+      
+    </ion-fab-list>
+  </ion-fab>
 </ion-header>
 
 <ion-content padding>

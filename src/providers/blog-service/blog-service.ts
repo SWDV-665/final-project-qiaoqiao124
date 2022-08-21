@@ -38,6 +38,24 @@ export class BlogServiceProvider {
     return body || { };
   }
 
+  getBlogs(): Observable<object[]> {
+    
+    return this.http.get(this.baseURL + "/api/blogs").pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
+
+  getBlogsOfOneUser(user, authorID):Observable<object[]> {
+    
+    return this.http.get(this.baseURL + "/api/blogs/authorID").pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
+
+
+
   // getItems(): Observable<object[]> {
   //   console.log('Hello getItems');
   //   return this.http.get(this.baseURL + "/api/groceries").pipe(
@@ -54,17 +72,9 @@ export class BlogServiceProvider {
   }
 
  
-  // getBlogs(): Observable<BlogItem[]> {
-  //   return this.http.get<BlogItem[]>(this.baseURL + "/api/blogs");
-  // }
+  
 
-  getBlogs(): Observable<object[]> {
-    
-    return this.http.get(this.baseURL + "/api/blogs").pipe(
-      map(this.extractData),
-      catchError(this.handleError)
-    );
-  }
+  
 
   postBlog(blogItem, user){
     this.newBlog = {

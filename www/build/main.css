@@ -25696,6 +25696,14 @@ ion-navbar.toolbar {
   min-height: 46px;
 }
 
+chats-item ion-note {
+  font-size: 12px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: 14px;
+}
+
 page-chatMessages {
   /* allows the bar-footer to be elastic /*
   /* optionally set a max-height */

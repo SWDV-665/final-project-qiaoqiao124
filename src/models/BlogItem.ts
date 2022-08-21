@@ -1,7 +1,7 @@
 import { DateTime } from "ionic-angular";
 
 export class BlogItem {
-    userID: Number;
+    authorID: String;
     title?: String;
     dateUpdated: DateTime;
     content?: String;

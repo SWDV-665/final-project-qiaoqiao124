@@ -1,5 +1,5 @@
 {
-  "name": "groceries",
+  "name": "petlovers",
   "version": "0.0.1",
   "engines": {
     "node": "9.11.1"
@@ -35,7 +35,7 @@
     "@ionic/storage": "^2.2.0",
     "ajv": "^8.11.0",
     "cordova-android": "^7.1.4",
-    "cordova-ios": "^4.5.5",
+    "cordova-ios": "5.0.0",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-device": "^2.1.0",
     "cordova-plugin-file": "^6.0.2",
@@ -46,21 +46,26 @@
     "cordova-plugin-splashscreen": "^5.0.4",
     "cordova-plugin-statusbar": "^2.4.3",
     "cordova-plugin-x-socialsharing": "^6.0.3",
+    "cordova-windows": "^5.0.0",
     "es6-promise-plugin": "^4.2.2",
+    "ionic": "^3.20.0",
     "ionic-angular": "3.9.9",
     "ionicons": "3.0.0",
     "ios": "0.0.1",
+    "ios-sim": "^9.0.0",
     "moment": "^2.29.4",
     "rxjs": "^5.5.6",
     "sw-toolbox": "3.6.0",
-    "typescript": "2.9.2",
+    "typescript": "^2.6.2",
     "zone.js": "0.8.29"
   },
   "devDependencies": {},
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-camera": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
       "cordova-plugin-x-socialsharing": {
         "PHOTO_LIBRARY_ADD_USAGE_DESCRIPTION": "This app requires photo library access to function properly.",
         "PHOTO_LIBRARY_USAGE_DESCRIPTION": "This app requires photo library access to function properly."
@@ -75,7 +80,7 @@
     },
     "platforms": [
       "android",
-      "ios"
+      "windows"
     ]
   }
 }

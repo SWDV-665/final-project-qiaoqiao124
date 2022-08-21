@@ -6,34 +6,34 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>chat-messages</ion-title>
+    <ion-title>Chat with {{friendName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <div *ngFor="let message of messages" class="message-wrapper" on-hold="onMessageHold($event, $index, message)">
-    <!-- 判断消息是发送 -->
-    <div *ngIf="user._id !== message.userId">
-      <img (click)="viewProfile(message)" class="profile-pic left" [src]="toUser.pic"/>
+
+    <div *ngIf="user._id !== message.from">
+      <img (click)="viewProfile(message)" class="profile-pic left" [src]=""/>
      
       <div class="chat-bubble left slide-left">
-        <div class="message" [innerHTML]="message.text" autolinker> </div>
+        <div class="message" [innerHTML]="message.content" autolinker> </div>
         <div class="message-detail">
-          <span (click)="viewProfile(message)" class="bold">{{toUser.username}}</span>
-          <span>{{message.date | moment:"ago" | lowercase}}</span>
+          <!-- <span (click)="viewProfile(message)" class="bold">{{message.username}}</span> -->
+          <span>{{message.dateUpdated | moment:"ago" | lowercase}}</span>
         </div>
       </div>
     </div>
 
-    <!-- 判断消息是发送 -->
-    <div *ngIf="user._id === message.userId">
-      <img (click)="viewProfile(message)" class="profile-pic right" [src]="user.pic"/>
+    
+    <div *ngIf="user._id === message.from">
+      <img (click)="viewProfile(message)" class="profile-pic right" [src]=""/>
       <div class="chat-bubble right slide-right">
-        <div class="message" [innerHTML]="message.text" autolinker></div>
+        <div class="message" [innerHTML]="message.content" autolinker></div>
         <div class="message-detail">
-          <span (click)="viewProfile(message)" class="bold">{{user.username}}</span>,
-          <span>{{message.date | moment:"ago" | lowercase}}</span>
+          <!-- <span (click)="viewProfile(message)" class="bold">{{user.username}}</span>, -->
+          <span>{{message.dateUpdated | moment:"ago" | lowercase}}</span>
         </div>
       </div>
     </div>
@@ -48,30 +48,14 @@
 
 </ion-content>
 
-<!-- 底部固定的输入框 -->
+
 <ion-footer>
   <form [formGroup]="messageForm" (submit)="send(chatBox)" novalidate>
     <ion-item>
-      <ion-input formControlName="message" [(ngModel)]="chatBox" placeholder="Send {{toUser.username}} a message..."></ion-input>
+      <ion-input formControlName="message" [(ngModel)]="chatBox" placeholder="Send  a message..."></ion-input>
       <button ion-button clear (click)="send(chatBox)" item-end><ion-icon class="footer-btn" name="send"></ion-icon></button>
     </ion-item>
   </form>
 </ion-footer>
-<!-- <ion-footer no-border class="chatPageFooter" [keyboardAttach]="content" [btnClicked]="btnEmitter">
-  <ion-toolbar>
-    <ion-item no-lines>
-      <ion-label style="margin:0px;"></ion-label>
-      <div item-content style="width:100%;">
-        <elastic-textarea #txtChat placeholder="Send a message" lineHeight="20" maxExpand="5"></elastic-textarea>
-      </div>
-    </ion-item>
-    <ion-buttons right style="margin-left:10px">
-      <button ion-button icon-only style="margin-top: -15px;"
-              [disabled]="txtChat.content.trim().length<1"
-              (click)="sendMessage()">
-        <ion-icon name="md-send"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer> -->
+
 

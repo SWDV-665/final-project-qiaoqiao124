@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{title}}</ion-title>
+    <ion-title>Hello, {{user.username}}!</ion-title>
     
   </ion-navbar>
 </ion-header>
@@ -34,24 +34,27 @@
     </ion-item-sliding>
   </ion-list> -->
   
-  <ion-card *ngFor="let blog of blogs">
+  <ion-card *ngFor="let blog of blogs" (click)="viewTheBlog(blog)" style="height: 35vh;">
     <ion-item>
       <ion-avatar item-start>
-        <img [src]="blog.user-image">
+        <img [src]="">
       </ion-avatar>
       <h2>{{blog.title}}</h2>
+      <p>Author: {{blog.authorName}}</p>
       <p>{{blog.dateUpdated}}</p>
+      
+      
     </ion-item>
   
     <img src="img/advance-card-bttf.png">
   
-    <ion-card-content>
+    <ion-card-content >
       <p>{{blog.content}}</p>
     </ion-card-content>
   
     <ion-row>
       <ion-col>
-        <button ion-button icon-start clear small (click)="viewMessages(chat)">
+        <button ion-button icon-start clear small>
           <ion-icon name="thumbs-up"></ion-icon>
           <div>{{blog.likes}} Likes</div>
         </button>
@@ -68,6 +71,15 @@
         </ion-note>
       </ion-col>
     </ion-row>
+    <!-- <ion-fab right bottom>
+      <button ion-fab color="light"><ion-icon name="arrow-dropleft"></ion-icon></button>
+      <ion-fab-list side="left">
+        <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+        <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+      </ion-fab-list>
+    </ion-fab> -->
   
   </ion-card>
 
