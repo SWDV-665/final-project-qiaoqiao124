@@ -14,7 +14,8 @@ import { RegisterPage } from '../pages/register/register';
 import { ChatMessagesPage } from '../pages/chatMessages/chatMessages';
 import { BlogEditingPage } from '../pages/blog-editing/blog-editing';
 import { BlogDetailPage } from '../pages/blog-detail/blog-detail';
-
+import { MessageItem } from '../models/MessageItem';
+import { User } from '../models/User';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GroceriesServiceProvider } from '../providers/groceries-service/groceries-service';
@@ -38,6 +39,7 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     MyApp,
     ChatsPage,
     ChatMessagesPage,
+    MessageItem,
     SettingsPage,
     BlogsPage,
     TabsPage,
@@ -45,7 +47,8 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     RegisterPage,
     BlogEditingPage,
     BlogDetailPage,
-    ChatsItemComponent
+    ChatsItemComponent,
+    User
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,9 @@ import { ChatServiceProvider } from '../providers/chat-service/chat-service';
     RegisterPage,
     BlogEditingPage,
     BlogDetailPage,
-    ChatsPage
+    ChatsPage,
+    MessageItem,
+    User
   ],
   providers: [
     StatusBar,

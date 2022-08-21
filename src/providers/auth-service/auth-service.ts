@@ -26,23 +26,17 @@ export class AuthServiceProvider {
     private location: LocationStrategy) {
     console.log('Hello AuthServiceProvider Provider');
   }
-  // serverUrl = this.accountService.baseURL;
+ 
   
 
   // go to the login page
   loginPage() {
-    // this.nav.setRoot(LoginPage);
-    // this.nav.popToRoot();
     
     this.appCtrl.getRootNav().push(LoginPage).catch(err => {
-      let alert = this.alertCtrl.create({
-        title: 'No entry!',
-        subTitle: 'You shall not pass',
-        buttons: ['Okay']
-      });
-      alert.present();
+      
+      console.log(err);
     });
-    // this.isLoggedIn = true;
+   
   }
  
   // go to the login page
@@ -53,33 +47,13 @@ export class AuthServiceProvider {
   loginAuth(data) {
     console.log(data);
     return this.http.post<any>(this.baseURL + "/api/users/login", data)
-    // this.http.post(this.serverUrl + "/api/login", data).subscribe(res => {
-    //   this.users = <any>res;
-    //   this.dataModifySubject.next(true);
-    //   console.log(user, "new user created!");
-      
-    //   }, (err) => {
-    //     console.log(err);
-    //     this.toastCtrl.showToast('Email already exists!')
-    
-    // });
-
+   
   }
 
   registerUser(data) {
     console.log(data);
     return this.http.post<any>(this.baseURL + "/api/users/register", data)
-    // this.http.post(this.serverUrl + "/api/login", data).subscribe(res => {
-    //   this.users = <any>res;
-    //   this.dataModifySubject.next(true);
-    //   console.log(user, "new user created!");
-      
-    //   }, (err) => {
-    //     console.log(err);
-    //     this.toastCtrl.showToast('Email already exists!')
     
-    // });
-
   }
  
   

@@ -15,8 +15,8 @@ import { BlogItem } from '../../models/BlogItem';
 */
 @Injectable()
 export class BlogServiceProvider {
-  baseURL = "http://localhost:8080";
-  // baseURL = "https://pet-lovers-server.herokuapp.com";
+  //baseURL = "http://localhost:8080";
+  baseURL = "https://pet-lovers-server.herokuapp.com";
   newBlog: {}
 
   items = [];

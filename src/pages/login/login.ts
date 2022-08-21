@@ -51,14 +51,6 @@ export class LoginPage {
     }
 
     let data = {email: email.value, password: password.value, isRemember: this.isRemember};
-
-    // 储存用户信息
-    // this.storage.remove("USER_INFO");
-    // this.storage.set("USER_INFO", JSON.stringify(data));
-
-    // 界面跳转
-    // let modal = this.modalCtrl.create(TabsPage, data);
-    // modal.present();
     
     this.authService.loginAuth(data).subscribe(
       user => {
@@ -71,23 +63,8 @@ export class LoginPage {
         this.toastService.showToast(err.error);
       }
     );
-    // this.tabsPage();
+    
   }
-
-  // showToast(position: string, message: string) {
-  //   let toast = this.toastCtrl.create({
-  //     message: message,
-  //     duration: 2000,
-  //     position: position
-  //   });
-
-  //   toast.present(toast);
-  // }
-
- 
-  // logoutUser() {
-  //   this.authService.logout();
-  // }
  
   tabsPage(user: User) {
     this.navCtrl.push(TabsPage, {
@@ -102,8 +79,6 @@ export class LoginPage {
     this.navCtrl.push(RegisterPage);
   }
 
-  // isAuthenticated() {
-  //   return this.authService.authenticated();
-  // }
+  
 
 }

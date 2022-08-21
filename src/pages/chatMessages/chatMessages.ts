@@ -4,7 +4,7 @@ import { Component, ViewChild, EventEmitter, NgZone } from '@angular/core';
 import {IonicPage, NavController, Content, NavParams, DateTime} from 'ionic-angular';
 import { Keyboard } from '@ionic-native/keyboard';
 import { User } from '../../models/User';
-import { MessageItem } from '../../models/messageItem';
+import { MessageItem } from '../../models/MessageItem';
 import { ChatServiceProvider } from '../../providers/chat-service/chat-service';
 
 /**
