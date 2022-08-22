@@ -1,8 +1,5 @@
 var express = require('express')
 var models = require('./../models')
-// var mongoose = require('mongoose');
-// var dbUrl = require('./../dbUrl')
-
 var router = express.Router()
 
 
@@ -15,12 +12,11 @@ router.get('/', function (req, res) {
   //use mongoose to get all users in the database
   models.User.find(function (err, users) {
 
-      // if there is an error retrieving, send the error. nothing after res.send(err) will execute
       if (err) {
           res.send(err);
       }
 
-      res.json(users); // return all groceries in JSON format
+      res.json(users);
   });
 })
 
@@ -56,7 +52,6 @@ router.post('/register', function (req, res) {
 // login
 router.post('/login', function (req, res) {
   
-      
   models.User.findOne({ email: req.body.email }, (err, user) => {
     if (err) {
       console.log(err);
@@ -67,7 +62,7 @@ router.post('/login', function (req, res) {
         console.log(user);
         console.log(req.body.password);
         res.status(401).send('Password is not correct!');
-        // res.status(401).send(user);
+       
       } else {
         user.authenticated = true;
         res.status(200).send(user);

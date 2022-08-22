@@ -1,33 +1,15 @@
 var express = require('express')
 var models = require('./../models')
 
-// var dbUrl = require('./../dbUrl')
-
 var router = express.Router()
-
-
-// url = dbUrl + 'blogs';
-// console.log('Connecting to..', url)
-
-// // mongoose.connect(process.env.MONGODB_URI);
-// mongoose.connect(
-//   url,
-//     {
-//       useNewUrlParser: true,
-//       useUnifiedTopology: true,
-//     },
-//   ).then((x) => console.log('Connected to the DB', url))
-//   .catch(err => console.error('Error while connecting to DB', err));
 
 
 router.get('/', function (req, res) {
 
     console.log("Getting blogs list...");
   
-    //use mongoose to get all users in the database
     models.BlogItem.find(function (err, blogs) {
   
-        // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
             res.send(err);
         }

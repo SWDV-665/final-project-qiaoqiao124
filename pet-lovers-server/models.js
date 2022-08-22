@@ -41,9 +41,6 @@ const BlogItem = mongoose.model('BlogItem', {
     // file: File,
 });
 
-
-
-
 const ChatMessage = mongoose.model('ChatMessage', { 
     from: String,
     fromName: String,
@@ -67,7 +64,6 @@ const ChatMessage = mongoose.model('ChatMessage', {
 var models = {
     User: User,
     BlogItem: BlogItem,
-    // ChatMessages: ChatMessages,
     ChatMessage: ChatMessage
 }
 
